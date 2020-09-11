@@ -6,10 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
-actor.save
+  # actor = Actor.new({first_name: "Benedict", last_name: "Cumberbatch", known_for: "Sherlock"})
+  # actor.save
 
-actor = Actor.new(first_name: "Russell", last_name: "Brand", known_for: "Get Him to The Greek")
-actor.save
+  # actor = Actor.new(first_name: "Russell", last_name: "Brand", known_for: "Get Him to The Greek")
+  # actor.save
 
-actor = Actor.create(first_name: "Joe", last_name: "Peschi", known_for: "Goodfellas")
+  # actor = Actor.create(first_name: "Joe", last_name: "Peschi", known_for: "Goodfellas")
+
+# Movie.create(title: "Once Upon a Time in Hollywood", year: "2019", plot:"I couldnt tell you, I didnt see it.")
+
+# Movie.create(title: "The Blues Brothers", year: "1990", plot: "They'll never get caught. Their on a mission from God.")
+
+movie = Movie.new(title: "The Sound of Music", year: "1980", plot: "A music teacher teaches kids music during WWII.")
+movie.save
