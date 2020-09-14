@@ -5,4 +5,9 @@ class Api::ActorsController < ApplicationController
     render "single_actor.json.jb"
   end
 
+  def show
+    @actor = Actor.find(params[:id])
+    render "show.json.jb"
+  end
+
 end
