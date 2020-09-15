@@ -50,7 +50,7 @@ class Api::MoviesController < ApplicationController
   def destroy
     @movie = Movie.find(params[:id])
     @movie.destroy
-    render json: "You have successfully deleted the file"
+    render json: {message: "You have successfully deleted the file"}
   end
 
 end

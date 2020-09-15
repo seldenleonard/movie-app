@@ -50,7 +50,7 @@ class Api::ActorsController < ApplicationController
   def destroy
     @actor = Actor.find(params[:id])
     @actor.destroy
-    render json: "The file has been successfully destroyed"
+    render json: {message: "The file has been successfully destroyed"}
   end
 
 end
