@@ -1,18 +1,56 @@
 class Api::MoviesController < ApplicationController
 
-  def all_movies_action
+  def index
     @movies = Movie.all
-    render "all_movies_path.json.jb"
+    render "index.json.jb"
   end
 
-  def single_movie_action
-    @movie = Movie.find_by(id: 3)
-    render "single_movie_path.json.jb"
+  def show
+    @movie = Movie.find(params[:id])
+    render "show.json.jb"
   end
 
-  def choose_movie_values_action
-    @movie = Movie.where(title: "Searching for Sugar Man", year: "2012").limit(1)
-    render "choose_movie_values_path.json.jb"
+  def new
+    @movie = Movie.new({
+      title: params[:title],
+      year: params[:year],
+      plot: params[:plot]
+    })
+    @movie.save
+    render "show.json.jb"
+  end
+
+  def edit
+    @movie = Movie.find(params[:id])
+    @movie.title = params[:title] || @movie.title
+    @movie.year = params[:year] || @movie.year
+    @movie.plot = params[:plot] || @movie.plot
+    render "show.json.jb"
+    @movie.save
+  end
+
+  def create
+    @movie = Movie.create({
+      title: params[:title],
+      year: params[:year],
+      plot: params[:plot]
+    })
+    render "show.json.jb"
+  end
+
+  def update
+    @movie = Movie.find(params[:id])
+    @movie.title = params[:title] || @movie.title
+    @movie.year = params[:year] || @movie.year
+    @movie.plot = params[:plot] || @movie.plot
+    render "show.json.jb"
+    @movie.save
+  end
+
+  def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
+    render json: "You have successfully deleted the file"
   end
 
 end
