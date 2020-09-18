@@ -41,7 +41,11 @@ class Api::MoviesController < ApplicationController
       director: params[:director],
       english: params[:english]
     })
-    render "show.json.jb"
+    if @movie.save # Happy Path
+      render "show.json.jb"
+    else # Sad Path
+      render json: {errors: @movie.errors.full_messages}, status: :unprocessable_entity # same as using 'status: 422'
+    end
   end
 
   def update

@@ -10,28 +10,28 @@ class Api::ActorsController < ApplicationController
     render "show.json.jb"
   end
 
-  def new
-    @actor = Actor.new({
-        @actor.first_name => params[:first_name],
-        @actor.last_name => params[:last_name],
-        @actor.known_for => params[:known_for],
-        @actor.gender => params[:gender],
-        @actor.age => params[:age]
-      })
-    @actor.save
-    render "show.json.jb"
-  end
+  # def new
+  #   @actor = Actor.new({
+  #       @actor.first_name => params[:first_name],
+  #       @actor.last_name => params[:last_name],
+  #       @actor.known_for => params[:known_for],
+  #       @actor.gender => params[:gender],
+  #       @actor.age => params[:age]
+  #     })
+  #   @actor.save
+  #   render "show.json.jb"
+  # end
 
-  def edit
-    @actor = Actor.find(params[:id])
-    @actor.first_name = params[:first_name] || @actor.first_name
-    @actor.last_name = params[:last_name] || @actor.last_name
-    @actor.known_for = params[:known_for] || @actor.known_for
-    @actor.gender = params[:gender] || actor.gender
-    @actor.age = params[:age] || actor.age
-    @actor.save
-    render "show.json.jb"
-  end
+  # def edit
+  #   @actor = Actor.find(params[:id])
+  #   @actor.first_name = params[:first_name] || @actor.first_name
+  #   @actor.last_name = params[:last_name] || @actor.last_name
+  #   @actor.known_for = params[:known_for] || @actor.known_for
+  #   @actor.gender = params[:gender] || actor.gender
+  #   @actor.age = params[:age] || actor.age
+  #   @actor.save
+  #   render "show.json.jb"
+  # end
 
   def create
     @actor = Actor.create({
@@ -41,7 +41,11 @@ class Api::ActorsController < ApplicationController
       gender: params[:gender],
       age: params[:age]
     })
-    render "show.json.jb"
+    if @actor.save # Happy Path
+      render "show.json.jb"
+    else # Sad Path
+      render json: {mesage: @actor.errors.full_messages}, status: :unprocessable_entity # same as using 'status: 422'
+    end
   end
 
   def update
@@ -52,7 +56,11 @@ class Api::ActorsController < ApplicationController
     @actor.gender = params[:gender] || actor.gender
     @actor.age = params[:age] || actor.age
     @actor.save
-    render "show.json.jb"
+    if @actor.save # Happy Path
+      render "show.json.jb"
+    else # Sad Path
+      render json: {message: @actor.errors.full_messages}, status: :unprocessable_entity # same as using 'status: 422'
+    end
   end
 
   def destroy
