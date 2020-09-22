@@ -5,15 +5,15 @@ class Api::MoviesController < ApplicationController
     render "index.json.jb"
   end
 
-  # def show
-  #   @movie = Movie.find(params[:id])
-  #   render "show.json.jb"
-  # end
-
   def show
-    @movie = Movie.all.where("english = ?", "true")
+    @movie = Movie.find(params[:id])
     render "show.json.jb"
   end
+
+  # def show
+  #   @movie = Movie.all.where("english = ?", "true")
+  #   render "show.json.jb"
+  # end
 
   def new
     @movie = Movie.new({
