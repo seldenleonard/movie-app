@@ -8,5 +8,17 @@ class Movie < ApplicationRecord
   validates :english, exclusion: {in: [nil]}
 
   has_many :actors
+  has_many :movie_genres
+
+  has_many :genres, through: :movie_genres
+  # belongs_to :genres, through: :movie_genres
+
+  # def genre_names
+  #   genre_names: movie.genres.map do |genre|
+  #   render {
+  #     genre_name: genre
+  #   }
+  #   end
+  # end
 
 end

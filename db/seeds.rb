@@ -18,5 +18,25 @@
 
 # Movie.create(title: "The Blues Brothers", year: "1990", plot: "They'll never get caught. Their on a mission from God.")
 
-movie = Movie.new(title: "The Sound of Music", year: "1980", plot: "A music teacher teaches kids music during WWII.")
-movie.save
+# movie = Movie.new(title: "The Sound of Music", year: "1980", plot: "A music teacher teaches kids music during WWII.")
+# movie.save
+
+MovieGenre.create(genre_id: 1, movie_id: 2)
+MovieGenre.create(genre_id: 1, movie_id: 3)
+MovieGenre.create(genre_id: 1, movie_id: 7)
+MovieGenre.create(genre_id: 1, movie_id: 19)
+MovieGenre.create(genre_id: 2, movie_id: 3)
+MovieGenre.create(genre_id: 2, movie_id: 4)
+MovieGenre.create(genre_id: 2, movie_id: 5)
+MovieGenre.create(genre_id: 2, movie_id: 6)
+MovieGenre.create(genre_id: 2, movie_id: 7)
+MovieGenre.create(genre_id: 2, movie_id: 18)
+MovieGenre.create(genre_id: 2, movie_id: 20)
+MovieGenre.create(genre_id: 2, movie_id: 23)
+MovieGenre.create(genre_id: 3, movie_id: 3)
+MovieGenre.create(genre_id: 3, movie_id: 4)
+MovieGenre.create(genre_id: 3, movie_id: 5)
+MovieGenre.create(genre_id: 3, movie_id: 6)
+MovieGenre.create(genre_id: 3, movie_id: 18)
+MovieGenre.create(genre_id: 3, movie_id: 22)
+MovieGenre.create(genre_id: 4, movie_id: 1)

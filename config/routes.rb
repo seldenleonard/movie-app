@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
+    get 'genre/name'
+  end
+  namespace :api do
 
     # Actor Paths
     get "/actors" => "actors#index"
