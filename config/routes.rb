@@ -28,6 +28,9 @@ Rails.application.routes.draw do
     # Session (Login) Path
     post "/sessions" => "sessions#create"
   
+    # Movie Genre Paths
+    post "/movie_genres" => "movie_genres#create"
+
   end
 
 end
