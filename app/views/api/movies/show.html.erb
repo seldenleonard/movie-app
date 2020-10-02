@@ -1,0 +1,17 @@
+<form action="/movies" method="get">
+  <div></div>
+  <div>Title: <input type="text" name="title" /></div>
+  <div>Year: <input type="text" name="year" /></div>
+  <div>Plot: <input type="text" name="plot" /></div>
+  <div>Director: <input type="text" name="director" /></div>
+  <div>English: <input type="text" name="english" /></div>
+</form>
+
+
+<h1><%=@movie.title%></h1>
+<h6><%=@movie.year%></h6>
+<h6>Plot Summary: <%=@movie.plot%></h6>
+<h6>Directed By: <%=@movie.director%></h6>
+<h6>English? <%=@movie.english%></h6>
+
+<a href="/api/movies">Index</a>

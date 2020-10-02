@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   namespace :api do
     get 'genre/name'
   end
+
+  # HTML Movie Paths
+  get "movies/:id" => "movies#show"
+
+
   namespace :api do
 
     # Actor Paths
