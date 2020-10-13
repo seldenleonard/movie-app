@@ -2,14 +2,14 @@ class Api::ActorsController < ApplicationController
 
   before_action :authenticate_admin, except: [:index, :show]
 
-  # def index
-  #   @actors = Actor.all
-  #   render "index.json.jb"
-  # end
-
   def index
-    @actors = Actor.all.order(age: :desc)
+    @actors = Actor.all
+    render "index.json.jb"
   end
+
+  # def index
+  #   @actors = Actor.all.order(age: :desc)
+  # end
 
   def show
     @actor = Actor.find(params[:id])
